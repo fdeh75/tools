@@ -7,4 +7,6 @@ tic -x termite.terminfo
 apt-get update
 apt-get upgrade
 apt-get install zsh
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
 

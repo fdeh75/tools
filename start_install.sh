@@ -15,7 +15,7 @@ apt-get install \
 apt-get install curl
 curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
 add-apt-repository \
-   "deb [arch=arm64] https://download.docker.com/linux/debian \
+   "deb [arch=amd64] https://download.docker.com/linux/debian \
    $(lsb_release -cs) \
    stable"
 apt-get update

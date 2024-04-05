@@ -1,0 +1,70 @@
+--- /etc/ssh/sshd_config	2023-03-29 10:06:09.324804668 +0000
++++ sshd_config	2024-04-02 20:31:15.416517870 +0000
+@@ -10,7 +10,7 @@
+ # default value.
+
+ Include /etc/ssh/sshd_config.d/*.conf
+-
++Protocol 2
+ #Port 22
+ #AddressFamily any
+ #ListenAddress 0.0.0.0
+@@ -25,15 +25,15 @@
+
+ # Logging
+ #SyslogFacility AUTH
+-#LogLevel INFO
++LogLevel Verbose
+
+ # Authentication:
+
+ #LoginGraceTime 2m
+-#PermitRootLogin No
++PermitRootLogin No
+ #StrictModes yes
+-#MaxAuthTries 6
+-#MaxSessions 10
++MaxAuthTries 5
++MaxSessions 4
+
+ #PubkeyAuthentication yes
+
+@@ -51,10 +51,10 @@
+ # HostbasedAuthentication
+ #IgnoreUserKnownHosts no
+ # Don't read the user's ~/.rhosts and ~/.shosts files
+-#IgnoreRhosts yes
++IgnoreRhosts yes
+
+ # To disable tunneled clear text passwords, change to no here!
+-#PermitEmptyPasswords no
++PermitEmptyPasswords no
+
+ # Change to yes to enable challenge-response passwords (beware issues with
+ # some PAM modules and threads)
+@@ -82,8 +82,8 @@
+ UsePAM yes
+
+ #AllowAgentForwarding yes
+-#AllowTcpForwarding yes
+-#GatewayPorts no
++AllowTcpForwarding no
++GatewayPorts no
+ X11Forwarding yes
+ #X11DisplayOffset 10
+ #X11UseLocalhost yes
+@@ -93,12 +93,12 @@
+ #TCPKeepAlive yes
+ #PermitUserEnvironment no
+ #Compression delayed
+-#ClientAliveInterval 0
+-#ClientAliveCountMax 3
++ClientAliveInterval 300
++ClientAliveCountMax 0
+ #UseDNS no
+ #PidFile /run/sshd.pid
+ #MaxStartups 10:30:100
+-#PermitTunnel no
++PermitTunnel no
+ #ChrootDirectory none
+ #VersionAddendum none

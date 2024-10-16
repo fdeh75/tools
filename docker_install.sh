@@ -11,6 +11,7 @@ function debian(){
   sudo apt-get update
   sudo apt-get -y install ca-certificates curl gnupg
   sudo install -m 0755 -d /etc/apt/keyrings
+  rm /etc/apt/keyrings/docker.gpg || true
   curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
   sudo chmod a+r /etc/apt/keyrings/docker.gpg
 
@@ -37,6 +38,7 @@ function ubuntu() {
     sudo apt-get update
     sudo apt-get -y install ca-certificates curl gnupg
     sudo install -m 0755 -d /etc/apt/keyrings
+    rm /etc/apt/keyrings/docker.gpg || true
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
     sudo chmod a+r /etc/apt/keyrings/docker.gpg
 
